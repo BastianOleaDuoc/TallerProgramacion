@@ -1,0 +1,64 @@
+<!-- bienvenida.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bienvenida | Mestrax</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#000;
+overflow:hidden;
+}
+
+.pantalla{
+text-align:center;
+animation:fadeOut 1s ease 4s forwards;
+}
+
+.pantalla img{
+width:380px;      /* tamaño ajustado */
+max-width:90%;
+height:auto;
+border-radius:18px;
+box-shadow:0 0 25px rgba(255,255,255,.15);
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="pantalla">
+<img src="../img/logo.png" alt="Logo Bienvenida">
+</div>
+
+<script>
+
+setTimeout(()=>{
+
+window.location.href="index.html";
+
+},5000);
+
+</script>
+
+</body>
+</html>

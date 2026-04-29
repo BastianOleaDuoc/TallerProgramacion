@@ -1,0 +1,11 @@
+.admin-section {
+  display: block;
+}
+
+.admin-section.d-none {
+  display: none;
+}
+
+#adminTabs .nav-link {
+  cursor: pointer;
+}

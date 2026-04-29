@@ -1,0 +1,57 @@
+<!-- producto.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mestrax | Productos</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+
+    <h1 class="logo">
+      <a href="index.html">Mestrax</a>
+    </h1>
+
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="producto.html" class="active">Productos</a></li>
+      <li><a href="carrito.html">Carrito <span id="cart-count">0</span></a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Usuario</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+
+  </div>
+</header>
+
+<main class="container">
+
+<section class="filtros">
+  <select id="categoria">
+    <option value="Todas">Todas</option>
+    <option value="Hamburguesas">Hamburguesas</option>
+    <option value="Entradas">Entradas</option>
+    <option value="Chorrillanas">Chorrillanas</option>
+    <option value="Tragos">Tragos</option>
+    <option value="Mocktails">Mocktails</option>
+    <option value="Cafeteria">Cafeteria</option>
+    <option value="Postres">Postres</option>
+  </select>
+
+  <input type="text" id="buscar" placeholder="Buscar producto...">
+</section>
+
+<section>
+  <h2 class="title">Productos disponibles</h2>
+  <div id="grid" class="grid"></div>
+</section>
+
+</main>
+
+<script src="../js/producto.js"></script>
+</body>
+</html>
