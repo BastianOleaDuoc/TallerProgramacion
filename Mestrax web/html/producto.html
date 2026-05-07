@@ -5,49 +5,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mestrax | Productos</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="container nav">
-
-    <h1 class="logo">
-      <a href="index.html">Mestrax</a>
+<header>
+  <div class="container">
+    <h1 class="m-0">
+      <a href="./index.html">Mestrax</a>
     </h1>
-
-    <ul class="menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="producto.html" class="active">Productos</a></li>
-      <li><a href="carrito.html">Carrito <span id="cart-count">0</span></a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="login.html" id="usuarioLink">Usuario</a></li>
-      <li><a href="admin.html">Admin</a></li>
-    </ul>
-
+    <nav>
+      <a href="./index.html"><i class="bi bi-house me-1"></i>Inicio</a>
+      <a href="./producto.html" class="active"><i class="bi bi-shop me-1"></i>Productos</a>
+      <a href="./carrito.html"><i class="bi bi-cart me-1"></i>Carrito <span id="cart-count" class="badge bg-danger">0</span></a>
+      <a href="./reserva.html"><i class="bi bi-calendar-check me-1"></i>Reserva</a>
+      <a href="./contactos.html"><i class="bi bi-telephone me-1"></i>Contacto</a>
+      <a href="./login.html"><i class="bi bi-person me-1"></i>Usuario</a>
+      <a href="./loginAdmin.html"><i class="bi bi-gear me-1"></i>Admin</a>
+    </nav>
   </div>
 </header>
 
-<main class="container">
+<main class="container py-5">
 
-<section class="filtros">
-  <select id="categoria">
-    <option value="Todas">Todas</option>
-    <option value="Hamburguesas">Hamburguesas</option>
-    <option value="Entradas">Entradas</option>
-    <option value="Chorrillanas">Chorrillanas</option>
-    <option value="Tragos">Tragos</option>
-    <option value="Mocktails">Mocktails</option>
-    <option value="Cafeteria">Cafeteria</option>
-    <option value="Postres">Postres</option>
-  </select>
-
-  <input type="text" id="buscar" placeholder="Buscar producto...">
+<section class="filtros mb-4">
+  <div class="row g-3 align-items-center">
+    <div class="col-md-4">
+      <label for="categoria" class="form-label fw-bold text-light">Categoría</label>
+      <select id="categoria" class="form-select">
+        <option value="Todas">Todas las categorías</option>
+        <option value="Hamburguesas">Hamburguesas</option>
+        <option value="Entradas">Entradas</option>
+        <option value="Chorrillanas">Chorrillanas</option>
+        <option value="Tragos">Tragos</option>
+        <option value="Mocktails">Mocktails</option>
+        <option value="Cafeteria">Cafetería</option>
+        <option value="Postres">Postres</option>
+      </select>
+    </div>
+    <div class="col-md-8">
+      <label for="buscar" class="form-label fw-bold text-light">Buscar producto</label>
+      <input type="text" id="buscar" class="form-control" placeholder="Escribe el nombre del producto...">
+    </div>
+  </div>
 </section>
 
 <section>
-  <h2 class="title">Productos disponibles</h2>
-  <div id="grid" class="grid"></div>
+  <h2 class="text-center mb-4 text-light fw-bold" style="font-size: 2.5rem; text-shadow: 0 0 10px rgba(255,215,0,0.5);">Productos Disponibles</h2>
+  <div id="grid" class="grid row g-4"></div>
 </section>
 
 </main>
