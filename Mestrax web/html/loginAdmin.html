@@ -31,6 +31,7 @@ Mestrax
 Carrito <span id="cart-count" class="badge bg-dark">0</span>
 </a>
 <a href="./loginAdmin.html" class="nav-link fw-bold text-dark">Admin</a>
+<a id="usuarioLink" href="./login.html" class="nav-link">Usuario</a>
 </nav>
 
 </div>
@@ -72,11 +73,13 @@ Solo personal autorizado
 
 </main>
 
+<script src="../js/navbar.js"></script>
 <script src="../js/loginAdmin.js"></script>
 
 <script>
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 document.getElementById("cart-count").textContent = carrito.length;
+actualizarNavbar();
 iniciarLoginAdmin();
 </script>
 

@@ -30,7 +30,9 @@ Mestrax
 <a href="./carrito.html" class="nav-link">
 Carrito <span id="cart-count" class="badge bg-dark">0</span>
 </a>
-<a href="./registro.html" class="nav-link">Registrarse</a>
+<a href="./contactos.html" class="nav-link">Contacto</a>
+<a id="usuarioLink" href="./login.html" class="nav-link">Usuario</a>
+<a href="./loginAdmin.html" class="nav-link">Admin</a>
 </nav>
 
 </div>
@@ -78,11 +80,13 @@ Ingresar
 
 </main>
 
+<script src="../js/navbar.js"></script>
 <script src="../js/login.js"></script>
 
 <script>
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 document.getElementById("cart-count").textContent = carrito.length;
+actualizarNavbar();
 iniciarLogin();
 </script>
 

@@ -27,7 +27,7 @@ localStorage.setItem("usuarioActivo", email);
 
 alert("Bienvenido a Mestrax");
 
-window.location.href = "index.html";
+window.location.href = "perfil.html";
 
 });
 
