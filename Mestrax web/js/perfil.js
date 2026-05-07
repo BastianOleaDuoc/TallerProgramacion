@@ -26,22 +26,22 @@ const fechaRegistro = new Date(usuario.fechaRegistro).toLocaleDateString('es-ES'
 
 perfilContent.innerHTML = `
 <div class="mb-4">
-<h3 class="fw-bold text-dark">Información Personal</h3>
+<h3 class="fw-bold text-white">Información Personal</h3>
 </div>
 
 <div class="mb-3">
-<label class="form-label text-muted">Nombre</label>
-<p class="fw-bold text-dark">${usuario.nombre}</p>
+<label class="form-label text-white">Nombre</label>
+<p class="fw-bold text-white">${usuario.nombre}</p>
 </div>
 
 <div class="mb-3">
-<label class="form-label text-muted">Correo electrónico</label>
-<p class="fw-bold text-dark">${usuario.email}</p>
+<label class="form-label text-white">Correo electrónico</label>
+<p class="fw-bold text-white">${usuario.email}</p>
 </div>
 
 <div class="mb-4">
-<label class="form-label text-muted">Miembro desde</label>
-<p class="fw-bold text-dark">${fechaRegistro}</p>
+<label class="form-label text-white">Miembro desde</label>
+<p class="fw-bold text-white">${fechaRegistro}</p>
 </div>
 
 <button id="cerrarSesionBtn" class="btn btn-dark w-100 mb-2">
