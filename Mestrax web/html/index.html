@@ -165,9 +165,11 @@ Ver productos
 
 </main>
 
+<script src="../js/navbar.js"></script>
 <script>
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 document.getElementById("cart-count").textContent = carrito.length;
+actualizarNavbar();
 </script>
 
 </body>

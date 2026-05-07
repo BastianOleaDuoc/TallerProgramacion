@@ -91,9 +91,13 @@ Pagar
 
 </main>
 
+<script src="../js/navbar.js"></script>
 <script src="../js/carrito.js"></script>
 
 <script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+document.getElementById("cart-count").textContent = carrito.length;
+actualizarNavbar();
 mostrarCarrito();
 </script>
 
