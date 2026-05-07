@@ -43,18 +43,18 @@ function mostrar(lista){
 const grid = document.getElementById("grid");
 
 grid.innerHTML = lista.map(p => `
-<div class="card">
-
-<img src="${p.img}" onerror="this.src='../img/default.png'">
-
-<h3>${p.name}</h3>
-<p>${p.category}</p>
-<span>${dinero(p.price)}</span>
-
-<button onclick="agregar(${p.id})">
-Agregar
-</button>
-
+<div class="col-md-4 col-lg-3 mb-4">
+  <div class="card h-100 shadow-sm border-0" style="background: linear-gradient(145deg, #2c2c2c, #1a1a1a); color: #e0e0e0; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <img src="${p.img}" class="card-img-top rounded-top" onerror="this.src='../img/default.png'" alt="${p.name}" style="height: 200px; object-fit: cover;">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title text-warning fw-bold">${p.name}</h5>
+      <p class="card-text text-muted small">${p.category}</p>
+      <p class="card-text fw-bold text-success mt-auto fs-5">${dinero(p.price)}</p>
+      <button class="btn btn-warning w-100 mt-2 fw-bold" onclick="agregar(${p.id})" style="background: linear-gradient(45deg, #ff4081, #ffeb3b); border: none; color: #000;">
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
 </div>
 `).join("");
 
