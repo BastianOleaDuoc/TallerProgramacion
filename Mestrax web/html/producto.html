@@ -11,49 +11,44 @@
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1 class="m-0">
-      <a href="./index.html">Mestrax</a>
-    </h1>
-    <nav>
-      <a href="./index.html"><i class="bi bi-house me-1"></i>Inicio</a>
-      <a href="./producto.html" class="active"><i class="bi bi-shop me-1"></i>Productos</a>
-      <a href="./carrito.html"><i class="bi bi-cart me-1"></i>Carrito <span id="cart-count" class="badge bg-danger">0</span></a>
-      <a href="./reserva.html"><i class="bi bi-calendar-check me-1"></i>Reserva</a>
-      <a href="./contactos.html"><i class="bi bi-telephone me-1"></i>Contacto</a>
-      <a href="./login.html"><i class="bi bi-person me-1"></i>Usuario</a>
-      <a href="./loginAdmin.html"><i class="bi bi-gear me-1"></i>Admin</a>
-    </nav>
-  </div>
-</header>
+<!-- Header Dinámico -->
+<script src="../js/header.js"></script>
 
 <main class="container py-5">
 
-<section class="filtros mb-4">
-  <div class="row g-3 align-items-center">
-    <div class="col-md-4">
-      <label for="categoria" class="form-label fw-bold text-light">Categoría</label>
-      <select id="categoria" class="form-select">
-        <option value="Todas">Todas las categorías</option>
-        <option value="Hamburguesas">Hamburguesas</option>
-        <option value="Entradas">Entradas</option>
-        <option value="Chorrillanas">Chorrillanas</option>
-        <option value="Tragos">Tragos</option>
-        <option value="Mocktails">Mocktails</option>
-        <option value="Cafeteria">Cafetería</option>
-        <option value="Postres">Postres</option>
+<section class="text-center mb-5 mt-3">
+  <div class="badge-modern mb-3">Menú Exclusivo</div>
+  <h2 class="fw-bolder m-0 display-5">Nuestra <span class="text-gradient">Selección</span></h2>
+</section>
+
+<section class="mb-5">
+  <div class="filter-bar-modern d-flex flex-column flex-md-row align-items-center gap-2 p-2 mx-auto" style="max-width: 900px;">
+    
+    <div class="position-relative flex-grow-1 w-100">
+      <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-4 text-muted fs-5"></i>
+      <input type="text" id="buscar" class="form-control border-0 ps-5 py-3 shadow-none text-white w-100" placeholder="Busca tu plato o bebida favorita..." style="background: transparent !important; font-size: 1.05rem;">
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div class="position-relative w-100 category-select-container">
+      <i class="bi bi-funnel position-absolute top-50 start-0 translate-middle-y ms-4 text-muted z-1"></i>
+      <select id="categoria" class="form-select border-0 ps-5 py-3 shadow-none text-white w-100 fw-medium" style="background: rgba(255,255,255,0.05) !important; cursor: pointer;">
+        <option value="Todas" class="text-dark">🍽️ Todo el menú</option>
+        <option value="Hamburguesas" class="text-dark">🍔 Hamburguesas</option>
+        <option value="Entradas" class="text-dark">🍟 Entradas</option>
+        <option value="Chorrillanas" class="text-dark">🥩 Chorrillanas</option>
+        <option value="Tragos" class="text-dark">🍸 Coctelería</option>
+        <option value="Mocktails" class="text-dark">🍹 Mocktails</option>
+        <option value="Cafeteria" class="text-dark">☕ Cafetería</option>
+        <option value="Postres" class="text-dark">🍰 Postres</option>
       </select>
     </div>
-    <div class="col-md-8">
-      <label for="buscar" class="form-label fw-bold text-light">Buscar producto</label>
-      <input type="text" id="buscar" class="form-control" placeholder="Escribe el nombre del producto...">
-    </div>
+
   </div>
 </section>
 
 <section>
-  <h2 class="text-center mb-4 text-light fw-bold" style="font-size: 2.5rem; text-shadow: 0 0 10px rgba(255,215,0,0.5);">Productos Disponibles</h2>
   <div id="grid" class="grid row g-4"></div>
 </section>
 
