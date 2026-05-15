@@ -16,22 +16,8 @@
 
 <body>
 
-<header>
-  <div class="container">
-    <h1 class="m-0">
-      <a href="./index.html">Mestrax</a>
-    </h1>
-    <nav>
-      <a href="./index.html"><i class="bi bi-house me-1"></i>Inicio</a>
-      <a href="./producto.html"><i class="bi bi-shop me-1"></i>Productos</a>
-      <a href="./carrito.html"><i class="bi bi-cart me-1"></i>Carrito <span id="cart-count" class="badge bg-danger">0</span></a>
-      <a href="./reserva.html"><i class="bi bi-calendar-check me-1"></i>Reserva</a>
-      <a href="./contactos.html"><i class="bi bi-telephone me-1"></i>Contacto</a>
-      <a id="usuarioLink" href="./login.html" class="active"><i class="bi bi-person me-1"></i>Usuario</a>
-      <a href="./loginAdmin.html"><i class="bi bi-gear me-1"></i>Admin</a>
-    </nav>
-  </div>
-</header>
+<!-- Header Dinámico -->
+<script src="../js/header.js"></script>
 
 <main class="container py-5">
 
@@ -62,7 +48,7 @@ Ingresar
 
 <p class="text-center mt-3">
 ¿No tienes cuenta?
-<a href="./registro.html" class="fw-bold text-secondary">Regístrate</a>
+<a href="./registro.html" class="fw-bold text-dark">Regístrate</a>
 </p>
 
 <p class="text-center">
@@ -75,13 +61,11 @@ Ingresar
 
 </main>
 
-<script src="../js/navbar.js"></script>
 <script src="../js/login.js"></script>
 
 <script>
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 document.getElementById("cart-count").textContent = carrito.length;
-actualizarNavbar();
 iniciarLogin();
 </script>
 
