@@ -1,5 +1,4 @@
 const PRODUCTOS = [
-
 { id:1, name:"Mycelium Burger", category:"Hamburguesas", price:11990, img:"../img/mycelium.jpg"},
 { id:2, name:"Klask Burger", category:"Hamburguesas", price:10900, img:"../img/klask.png"},
 { id:3, name:"Ameri Burger", category:"Hamburguesas", price:10900, img:"../img/ameri.png"},
@@ -33,72 +32,81 @@ const PRODUCTOS = [
 { id:25, name:"Celestino con Helado", category:"Postres", price:6900, img:"../img/celestino.png"}
 
 ];
-
 function dinero(valor){
   return "$" + valor.toLocaleString("es-CL");
 }
 
 function mostrar(lista){
-
-const grid = document.getElementById("grid");
-
-grid.innerHTML = lista.map(p => `
-<div class="col-md-4 col-lg-3 mb-4">
-  <div class="card h-100">
-    <img src="${p.img}" class="card-img-top rounded-top" onerror="this.src='../img/default.png'" alt="${p.name}" style="height: 200px; object-fit: cover;">
-    <div class="card-body d-flex flex-column">
-      <h5 class="card-title fw-bold text-white">${p.name}</h5>
-      <p class="card-text text-muted small">${p.category}</p>
-      <p class="card-text fw-bold mt-auto fs-5" style="color: #60a5fa;">${dinero(p.price)}</p>
-      <button class="btn-primary-modern w-100 mt-2 fw-bold" onclick="agregar(${p.id})">
-        Agregar al carrito
-      </button>
+  const grid = document.getElementById("grid");
+  if(!grid) return;
+  
+  grid.innerHTML = lista.map(p => `
+    <div class="col-md-4 col-lg-3 mb-4">
+      <div class="card h-100">
+        <img src="${p.img}" class="card-img-top rounded-top" onerror="this.src='../img/default.png'" alt="${p.name}" style="height: 200px; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold text-white">${p.name}</h5>
+          <p class="card-text text-muted small">${p.category}</p>
+          <p class="card-text fw-bold mt-auto fs-5" style="color: #60a5fa;">${dinero(p.price)}</p>
+          <button class="btn-primary-modern w-100 mt-2 fw-bold" onclick="agregar(${p.id})">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-`).join("");
-
+  `).join("");
 }
 
 function filtrar(){
+  const catElem = document.getElementById("categoria");
+  const busElem = document.getElementById("buscar");
+  if(!catElem || !busElem) return;
 
-const cat = document.getElementById("categoria").value;
-const txt = document.getElementById("buscar").value.toLowerCase();
+  const cat = catElem.value;
+  const txt = busElem.value.toLowerCase();
 
-let lista = PRODUCTOS;
-
-if(cat != "Todas"){
-lista = lista.filter(p => p.category == cat);
-}
-
-if(txt != ""){
-lista = lista.filter(p => p.name.toLowerCase().includes(txt));
-}
-
-mostrar(lista);
-
+  let lista = PRODUCTOS;
+  if(cat !== "Todas") lista = lista.filter(p => p.category === cat);
+  if(txt !== "") lista = lista.filter(p => p.name.toLowerCase().includes(txt));
+  
+  mostrar(lista);
 }
 
 function agregar(id){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const prod = PRODUCTOS.find(p => p.id === id);
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  if(prod) {
+    carrito.push(prod);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 
-const prod = PRODUCTOS.find(p => p.id == id);
+    const cartCount = document.getElementById("cart-count");
+    if(cartCount) cartCount.textContent = carrito.length;
 
-carrito.push(prod);
+    Swal.fire({
+      title: '¡Producto Agregado!',
+      text: `${prod.name} ya está en tu carrito`,
+      icon: 'success',
+      timer: 2000,
+      showConfirmButton: false,
+      background: '#000000', 
+      color: '#fff',
 
-localStorage.setItem("carrito", JSON.stringify(carrito));
-
-document.getElementById("cart-count").textContent = carrito.length;
-
-alert(prod.name + " agregado");
-
+      backdrop: `rgba(0,0,0,0.4)` 
+    });
+  }
 }
 
-document.getElementById("categoria").addEventListener("change", filtrar);
-document.getElementById("buscar").addEventListener("input", filtrar);
+document.addEventListener("DOMContentLoaded", () => {
+  const selectCat = document.getElementById("categoria");
+  const inputBus = document.getElementById("buscar");
 
-mostrar(PRODUCTOS);
+  if(selectCat) selectCat.addEventListener("change", filtrar);
+  if(inputBus) inputBus.addEventListener("input", filtrar);
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-document.getElementById("cart-count").textContent = carrito.length;
+  mostrar(PRODUCTOS);
+
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const cartCount = document.getElementById("cart-count");
+  if(cartCount) cartCount.textContent = carrito.length;
+});
