@@ -1,0 +1,64 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #eff6ff;
+  background-color: #0b0c10; 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 193, 7, 0.06), transparent 25%),
+    radial-gradient(circle at right top, rgba(255, 145, 0, 0.04), transparent 20%),
+    linear-gradient(135deg, #0b0c10 0%, #12131c 50%, #06070a 100%);
+  color: #eff6ff;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+p { 
+  margin: 0; 
+  color: #dbe4f0; 
+}
+
+img { 
+  display: block; 
+  max-width: 100%; 
+}
+
+
+button, .btn {
+  border-radius: 999px !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+code, .counter { 
+  font-family: ui-monospace, Consolas, monospace; 
+}
