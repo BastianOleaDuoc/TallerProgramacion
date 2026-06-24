@@ -14,7 +14,7 @@ function normalizarTexto(valor = '') {
 
 function resolverImagenProducto(nombre) {
   const mapeo = {
-    myceliumburger: 'mycelium.jpg',
+    myceliumburger: 'mycelium.png',
     klaskburger: 'klask.png',
     ameriburger: 'ameri.png',
     bloodbbqrage: 'blood.png',

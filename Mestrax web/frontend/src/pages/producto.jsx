@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {
   API_BASE,
   PRODUCTOS_FALLBACK,
@@ -62,7 +63,21 @@ export default function Producto({ carrito, actualizarCarrito }) {
     const productoNormalizado = normalizeProducto(producto);
 
     if (productoNormalizado.estado !== 'Disponible') {
-      alert(`${productoNormalizado.nombre} no está disponible por ahora`);
+
+      Swal.fire({
+        title: 'No disponible',
+        text: `${productoNormalizado.nombre} no está disponible por ahora.`,
+        icon: 'error',
+        background: '#ffffff',
+        color: '#2d3748',
+        iconColor: '#f87171',
+        confirmButtonText: 'Entendido',
+        customClass: {
+          popup: 'rounded-4 shadow border-0',
+          confirmButton: 'btn secondary px-4'
+        },
+        buttonsStyling: false
+      });
       return;
     }
 
@@ -79,46 +94,62 @@ export default function Producto({ carrito, actualizarCarrito }) {
     }
 
     actualizarCarrito(nuevoCarrito);
-    alert(`¡Agregado con éxito!\n${productoNormalizado.nombre} ya está en tu carrito.`);
+
+
+    Swal.fire({
+      title: '¡Agregado al carrito!',
+      text: `${productoNormalizado.nombre} se sumó a tu orden.`,
+      icon: 'success',
+      timer: 1800,
+      showConfirmButton: false,
+      position: 'top-end',
+      toast: true,
+      background: '#ffffff',
+      color: '#2d3748',
+      iconColor: '#c084fc', 
+      customClass: {
+        popup: 'rounded-4 shadow border border-light-subtle'
+      }
+    });
   };
 
   return (
-    <main className="container py-5 page-shell text-white">
+    <main className="container py-5 page-shell">
 
       <section className="text-center mb-5 mt-3">
-        <div className="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3 fw-bold small text-uppercase tracking-wider">
+
+        <div className="badge-modern text-uppercase">
           Menú Exclusivo
         </div>
-        <h2 className="fw-bolder m-0 display-5 text-white">Nuestra <span className="text-warning">Selección</span></h2>
+        <h2 className="fw-bolder m-0 display-5 text-gradient">Nuestra Selección</h2>
       </section>
 
-
       <section className="mb-5">
-        <div className="d-flex flex-column flex-md-row align-items-center gap-2 p-2 mx-auto bg-dark border border-secondary border-opacity-25 rounded-3 shadow-sm" style={{ maxWidth: '900px' }}>
+        <div className="d-flex flex-column flex-md-row align-items-center gap-2 p-2 mx-auto filter-bar-modern" style={{ maxWidth: '900px' }}>
           <div className="position-relative flex-grow-1 w-100">
             <i className="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted fs-5"></i>
             <input
               type="text"
-              className="form-control bg-transparent border-0 ps-5 py-3 shadow-none text-white w-100"
+              className="form-control bg-transparent border-0 ps-5 py-3 shadow-none w-100"
               placeholder="Busca tu plato o bebida favorita..."
-              style={{ fontSize: '1.05rem' }}
+              style={{ fontSize: '1.05rem', color: '#2d3748' }}
               value={busqueda}
               onChange={(event) => setBusqueda(event.target.value)}
             />
           </div>
 
-          <div className="vr d-none d-md-block bg-secondary border-opacity-25 my-2" style={{ width: '1px', height: '40px' }}></div>
+          <div className="divider d-none d-md-block"></div>
 
           <div className="position-relative w-100 category-select-container">
             <i className="bi bi-funnel position-absolute top-50 start-0 translate-middle-y ms-3 text-muted z-1"></i>
             <select
-              className="form-select bg-black bg-opacity-30 border-secondary border-opacity-25 ps-5 py-3 shadow-none text-white w-100 fw-medium"
-              style={{ cursor: 'pointer' }}
+              className="form-select border-0 ps-5 py-3 shadow-none w-100 fw-medium"
+              style={{ cursor: 'pointer', background: 'transparent', color: '#2d3748' }}
               value={categoria}
               onChange={(event) => setCategoria(event.target.value)}
             >
               {CATEGORIAS.map((item) => (
-                <option key={item} value={item} className="bg-dark text-white">
+                <option key={item} value={item} className="bg-white text-dark">
                   {item === 'Todas' ? 'Todo el menú' : item}
                 </option>
               ))}
@@ -127,16 +158,16 @@ export default function Producto({ carrito, actualizarCarrito }) {
         </div>
       </section>
 
-
       <section>
         {loading ? (
           <div className="text-center text-muted py-5">
-            <div className="spinner-border text-warning mb-3" role="status"></div>
+            <div className="spinner-border text-primary mb-3" role="status"></div>
             <p className="mb-0 fw-medium">Cargando la carta de Mestrax...</p>
           </div>
         ) : productosFiltrados.length === 0 ? (
-          <div className="card bg-dark border-secondary border-opacity-25 p-5 text-center shadow rounded-3">
-            <i className="bi bi-exclamation-circle text-warning display-4 mb-3"></i>
+
+          <div className="glass-panel p-5 text-center shadow rounded-3">
+            <i className="bi bi-exclamation-circle text-danger display-4 mb-3"></i>
             <p className="mb-0 text-muted fs-5">No encontramos productos que coincidan con tus filtros.</p>
           </div>
         ) : (
@@ -146,7 +177,8 @@ export default function Producto({ carrito, actualizarCarrito }) {
 
               return (
                 <div key={producto.id} className="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <div className="card h-100 bg-dark text-white border-secondary border-opacity-25 p-0 overflow-hidden shadow-sm">
+
+                  <div className="card h-100 glass-panel p-0 overflow-hidden shadow-sm border-0">
                     <Link to={`/producto/${producto.id}`} className="text-decoration-none">
                       <div className="position-relative">
                         <img
@@ -168,18 +200,19 @@ export default function Producto({ carrito, actualizarCarrito }) {
                     
                     <div className="card-body d-flex flex-column p-4">
                       <div className="mb-1">
-                        <h5 className="card-title fw-bold text-white mb-1 fs-5">{producto.nombre}</h5>
-                        <span className="badge bg-secondary bg-opacity-25 text-muted small px-2 py-1 rounded">
+                        <h5 className="card-title fw-bold mb-1 fs-5" style={{ color: '#1a202c' }}>{producto.nombre}</h5>
+                        <span className="admin-chip px-2 py-1 rounded" style={{ fontSize: '0.75rem' }}>
                           {producto.categoria}
                         </span>
                       </div>
                       
-                      <p className="card-text fw-bold mt-3 mb-3 fs-5 text-warning">
+                      <p className="card-text fw-bold mt-3 mb-3 fs-5" style={{ color: '#6366f1' }}>
                         {dinero(producto.precio)}
                       </p>
                       
+
                       <button
-                        className={`btn w-100 mt-auto fw-bold py-2 ${disponible ? 'btn-warning text-dark shadow-sm' : 'btn-outline-secondary text-muted'}`}
+                        className={`btn w-100 mt-auto fw-bold py-2 ${!disponible ? 'secondary opacity-50 text-muted' : ''}`}
                         onClick={() => agregarAlCarrito(producto)}
                         disabled={!disponible}
                       >

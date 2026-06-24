@@ -166,65 +166,65 @@ export default function Reserva({ usuario }) {
   };
 
   return (
-    <main className="container py-5 page-shell text-white">
+    <main className="container py-5 page-shell">
       <div className="row justify-content-center">
         <div className="col-lg-9">
           
-
-          <section className="hero p-0 mb-4 rounded-4 shadow overflow-hidden position-relative bg-dark border border-secondary border-opacity-25" style={{ minHeight: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={RESERVA_IMAGES.fondo} alt="Fondo Reserva" className="w-100 h-100 position-absolute top-0 start-0" style={{ objectFit: 'cover', opacity: '0.15' }} onError={(event) => { event.currentTarget.src = RESERVA_IMAGES.fallback; }} />
+          {/* BANNER SUPERIOR CON ESTILO PASTEL GLASS */}
+          <section className="hero p-0 mb-4 rounded-4 shadow overflow-hidden position-relative bg-white border border-light-subtle" style={{ minHeight: '160px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={RESERVA_IMAGES.fondo} alt="Fondo Reserva" className="w-100 h-100 position-absolute top-0 start-0" style={{ objectFit: 'cover', opacity: '0.04' }} onError={(event) => { event.currentTarget.src = RESERVA_IMAGES.fallback; }} />
             <div className="position-relative p-4 text-center z-1">
-              <span className="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold small text-uppercase mb-2">Salón Interactivo</span>
-              <h2 className="fw-black display-6 m-0 text-white">Reserva tu Mesa</h2>
-              <p className="mb-0 fs-6 text-muted mt-1">Elige el día, la hora y asegura tu lugar preferido en segundos.</p>
+              <span className="badge-modern text-uppercase mb-2 d-inline-block">Salón Interactivo</span>
+              <h2 className="fw-black display-6 m-0 text-gradient">Reserva tu Mesa</h2>
+              <p className="mb-0 fs-6 text-muted mt-1fw-medium">Elige el día, la hora y asegura tu lugar preferido en segundos.</p>
             </div>
           </section>
 
-
-          <div className="card shadow-sm border-secondary border-opacity-25 rounded-4 bg-dark text-white mb-4">
+          {/* FORMULARIO DE RESERVAS CLARO */}
+          <div className="card shadow-sm border-light-subtle rounded-4 bg-white mb-4">
             <div className="card-body p-4">
-              <h3 className="h5 fw-bold text-white mb-4 border-bottom border-secondary border-opacity-15 pb-2">
-                <i className="bi bi-file-earmark-text text-warning me-2"></i>Datos de la Reserva
+              <h3 className="h5 fw-bold mb-4 border-bottom border-light-subtle pb-2" style={{ color: '#1a202c' }}>
+                <i className="bi bi-file-earmark-text text-primary me-2"></i>Datos de la Reserva
               </h3>
               
               <form id="reservaForm" onSubmit={handleSubmit}>
                 <div className="row gy-3">
                   <div className="col-md-6">
-                    <label htmlFor="nombre" className="form-label small text-uppercase text-muted">Nombre completo</label>
-                    <input type="text" id="nombre" name="nombre" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" placeholder="Tu nombre" value={form.nombre} onChange={handleChange} required />
+                    <label htmlFor="nombre" className="form-label small text-uppercase text-muted fw-bold">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" className="form-control border-light-subtle text-dark" style={{ background: '#f8f9fa' }} placeholder="Tu nombre" value={form.nombre} onChange={handleChange} required />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="telefono" className="form-label small text-uppercase text-muted">Teléfono de contacto</label>
-                    <input type="tel" id="telefono" name="telefono" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" placeholder="+56 9 1234 5678" value={form.telefono} onChange={handleChange} required />
+                    <label htmlFor="telefono" className="form-label small text-uppercase text-muted fw-bold">Teléfono de contacto</label>
+                    <input type="tel" id="telefono" name="telefono" className="form-control border-light-subtle text-dark" style={{ background: '#f8f9fa' }} placeholder="+56 9 1234 5678" value={form.telefono} onChange={handleChange} required />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="email" className="form-label small text-uppercase text-muted">Correo electrónico</label>
-                    <input type="email" id="email" name="email" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" placeholder="tu@email.com" value={form.email} onChange={handleChange} required />
+                    <label htmlFor="email" className="form-label small text-uppercase text-muted fw-bold">Correo electrónico</label>
+                    <input type="email" id="email" name="email" className="form-control border-light-subtle text-dark" style={{ background: '#f8f9fa' }} placeholder="tu@email.com" value={form.email} onChange={handleChange} required />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="personas" className="form-label small text-uppercase text-muted">Cantidad de Personas</label>
-                    <input type="number" id="personas" name="personas" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" min="1" max="12" value={form.personas} onChange={handleChange} required />
+                    <label htmlFor="personas" className="form-label small text-uppercase text-muted fw-bold">Cantidad de Personas</label>
+                    <input type="number" id="personas" name="personas" className="form-control border-light-subtle text-dark" style={{ background: '#f8f9fa' }} min="1" max="12" value={form.personas} onChange={handleChange} required />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="fecha" className="form-label small text-uppercase text-muted">Fecha del evento</label>
-                    <input type="date" id="fecha" name="fecha" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" value={form.fecha} onChange={handleChange} required />
+                    <label htmlFor="fecha" className="form-label small text-uppercase text-muted fw-bold">Fecha del evento</label>
+                    <input type="date" id="fecha" name="fecha" className="form-control border-light-subtle text-dark fw-semibold" style={{ background: '#f1f5f9' }} value={form.fecha} onChange={handleChange} required />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="hora" className="form-label small text-uppercase text-muted">Hora de llegada</label>
-                    <input type="time" id="hora" name="hora" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" value={form.hora} onChange={handleChange} required />
+                    <label htmlFor="hora" className="form-label small text-uppercase text-muted fw-bold">Hora de llegada</label>
+                    <input type="time" id="hora" name="hora" className="form-control border-light-subtle text-dark fw-semibold" style={{ background: '#f1f5f9' }} value={form.hora} onChange={handleChange} required />
                   </div>
                   <div className="col-12">
-                    <label htmlFor="comentarios" className="form-label small text-uppercase text-muted">Requerimientos Especiales (Opcional)</label>
-                    <textarea id="comentarios" name="comentarios" rows="3" className="form-control bg-black bg-opacity-40 text-white border-secondary border-opacity-50" placeholder="Ej. Mesa en zona de fumadores, alergias, celebraciones de cumpleaños..." value={form.comentarios} onChange={handleChange}></textarea>
+                    <label htmlFor="comentarios" className="form-label small text-uppercase text-muted fw-bold">Requerimientos Especiales (Opcional)</label>
+                    <textarea id="comentarios" name="comentarios" rows="3" className="form-control border-light-subtle text-dark" style={{ background: '#f8f9fa' }} placeholder="Ej. Mesa en terraza, alergias, celebraciones..." value={form.comentarios} onChange={handleChange}></textarea>
                   </div>
                   
                   <div className="col-12 my-2">
-                    {mensaje && <div className="alert alert-success border-0 bg-success bg-opacity-10 text-success small mb-0">✨ {mensaje}</div>}
-                    {error && <div className="alert alert-danger border-0 bg-danger bg-opacity-10 text-danger small mb-0">⚠️ {error}</div>}
+                    {mensaje && <div className="alert alert-success border-0 bg-success bg-opacity-10 text-success small mb-0 rounded-3">✨ {mensaje}</div>}
+                    {error && <div className="alert alert-danger border-0 bg-danger bg-opacity-10 text-danger small mb-0 rounded-3">⚠️ {error}</div>}
                   </div>
                   
                   <div className="col-12 text-end">
-                    <button type="submit" className="btn btn-warning text-dark fw-bold px-4 py-2" disabled={isSubmitting}>
+                    <button type="submit" className="btn px-4 py-2 fw-bold" disabled={isSubmitting}>
                       {isSubmitting ? 'Procesando...' : 'Confirmar y Reservar'}
                     </button>
                   </div>
@@ -233,35 +233,37 @@ export default function Reserva({ usuario }) {
             </div>
           </div>
 
-
-          <div className="card shadow-sm border-secondary border-opacity-25 rounded-4 bg-dark text-white">
+          {/* CROQUIS DE SALÓN TOTALMENTE CORREGIDO */}
+          <div className="card shadow-sm border-light-subtle rounded-4 bg-white">
             <div className="card-body p-4">
-              <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3 border-bottom border-secondary border-opacity-15 pb-2">
-                <h3 className="h5 fw-bold text-white mb-0">
-                  <i className="bi bi-map text-warning me-2"></i>Plano del Restaurante
+              <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3 border-bottom border-light-subtle pb-2">
+                <h3 className="h5 fw-bold mb-0" style={{ color: '#1a202c' }}>
+                  <i className="bi bi-map text-primary me-2"></i>Plano del Restaurante
                 </h3>
-                <span className={`badge ${mesaSeleccionada ? 'bg-warning text-dark' : 'bg-secondary text-muted'} px-3 py-2 fw-bold`}>
+                <span className={`badge ${mesaSeleccionada ? 'bg-primary text-white' : 'bg-light text-muted border'} px-3 py-2 fw-bold rounded-3`}>
                   {mesaSeleccionada ? `Mesa Elegida: ${mesaSeleccionada}` : 'Ninguna mesa seleccionada'}
                 </span>
               </div>
               
-              <p className="text-muted small mb-3">
+              <p className="text-muted small mb-3 fw-medium">
                 {horarioSeleccionado
                   ? isLoadingOcupadas
                     ? 'Sincronizando estado con el servidor de Mestrax...'
                     : `Disponemos de ${mesasDisponibles.length} mesas libres para el bloque seleccionado.`
-                  : 'Completa la fecha y hora arriba para liberar el mapa interactivo en tiempo real.'}
+                  : '⚠️ Completa primero la fecha y la hora en el formulario de arriba para desbloquear el mapa interactivo.'}
               </p>
               
-              <div className="mesa-legend d-flex gap-3 flex-wrap mb-4 small bg-black bg-opacity-20 p-2 rounded border border-secondary border-opacity-10">
-                <span className="d-flex align-items-center gap-2"><i className="mesa-dot libre bg-success d-inline-block rounded-circle" style={{ width: '10px', height: '10px' }}></i>Disponible</span>
-                <span className="d-flex align-items-center gap-2"><i className="mesa-dot ocupada bg-danger d-inline-block rounded-circle" style={{ width: '10px', height: '10px' }}></i>Ocupada</span>
-                <span className="d-flex align-items-center gap-2"><i className="mesa-dot bloqueada bg-secondary d-inline-block rounded-circle" style={{ width: '10px', height: '10px' }}></i>Bloqueado</span>
+              {/* LEYENDA CLARA PASTEL */}
+              <div className="d-flex gap-3 flex-wrap mb-4 small p-2 rounded border border-light-subtle" style={{ background: '#f8f9fa', color: '#4a5568' }}>
+                <span className="d-flex align-items-center gap-2"><i className="d-inline-block rounded-circle" style={{ width: '12px', height: '12px', background: '#6366f1' }}></i>Disponible</span>
+                <span className="d-flex align-items-center gap-2"><i className="d-inline-block rounded-circle" style={{ width: '12px', height: '12px', background: '#f87171' }}></i>Ocupada</span>
+                <span className="d-flex align-items-center gap-2"><i className="d-inline-block rounded-circle" style={{ width: '12px', height: '12px', background: '#cbd5e1' }}></i>Bloqueado (Falta Horario)</span>
+                <span className="d-flex align-items-center gap-2"><i className="d-inline-block rounded-circle" style={{ width: '12px', height: '12px', background: '#c084fc' }}></i>Tu Selección</span>
               </div>
 
-
-              <div className="restaurante-layout position-relative w-100 rounded-3 overflow-hidden border border-secondary border-opacity-20 bg-black bg-opacity-40" style={{ height: '360px' }}>
-                <div className="entrada border border-secondary text-muted position-absolute bg-dark p-2 text-center border-opacity-25" style={{ bottom: '0', left: '42%', width: '16%', fontSize: '0.8rem', borderTopLeftRadius: '8px', borderTopRightRadius: '8px' }}><span>Entrada</span></div>
+              {/* CONTENEDOR DEL SALÓN */}
+              <div className="restaurante-layout position-relative w-100 rounded-4 overflow-hidden border border-light-subtle" style={{ height: '380px', background: '#f8fafc' }}>
+                <div className="entrada border border-light-subtle text-muted position-absolute bg-white p-2 text-center fw-bold" style={{ bottom: '0', left: '42%', width: '16%', fontSize: '0.8rem', borderTopLeftRadius: '12px', borderTopRightRadius: '12px' }}><span>Entrada</span></div>
                 
                 <div className="area-principal w-100 h-100 position-absolute">
                   {POSICIONES_MESAS.map((mesa) => {
@@ -271,17 +273,51 @@ export default function Reserva({ usuario }) {
                     const bloqueada = ocupada || sinHorario || isLoadingOcupadas;
                     const estadoMesa = ocupada ? 'reservada' : bloqueada ? 'sin horario' : 'disponible';
 
-                    let colorClase = 'btn-outline-success';
-                    if (ocupada) colorClase = 'btn-danger opacity-75';
-                    else if (sinHorario) colorClase = 'btn-outline-secondary opacity-25';
-                    else if (seleccionada) colorClase = 'btn-warning text-dark fw-bold shadow';
+                    
+                    let estilosMesa = {
+                      background: '#6366f1', 
+                      color: '#ffffff',
+                      border: 'none',
+                      boxShadow: '0 2px 4px rgba(99, 102, 241, 0.2)'
+                    };
+
+                    if (ocupada) {
+                      estilosMesa = {
+                        background: '#f87171', 
+                        color: '#ffffff',
+                        border: 'none',
+                        boxShadow: 'none'
+                      };
+                    } else if (sinHorario) {
+                      estilosMesa = {
+                        background: '#cbd5e1', 
+                        color: '#94a3b8',
+                        border: '1px solid #e2e8f0',
+                        boxShadow: 'none'
+                      };
+                    } else if (seleccionada) {
+                      estilosMesa = {
+                        background: '#c084fc',
+                        color: '#ffffff',
+                        border: '2px solid #a855f7',
+                        boxShadow: '0 0 12px rgba(192, 132, 252, 0.6)'
+                      };
+                    }
 
                     return (
                       <button
                         key={mesa.id}
                         type="button"
-                        className={`btn btn-sm rounded-circle position-absolute d-flex align-items-center justify-content-center p-0 ${colorClase}`}
-                        style={{ top: mesa.top, left: mesa.left, width: '40px', height: '40px', transition: 'all 0.2s' }}
+                        className="btn rounded-circle position-absolute d-flex align-items-center justify-content-center p-0 fw-bold"
+                        style={{ 
+                          top: mesa.top, 
+                          left: mesa.left, 
+                          width: '42px', 
+                          height: '42px', 
+                          transition: 'all 0.2s ease',
+                          cursor: bloqueada ? 'not-allowed' : 'pointer',
+                          ...estilosMesa
+                        }}
                         onClick={() => !bloqueada && setMesaSeleccionada(mesa.id)}
                         disabled={bloqueada}
                         aria-label={`Mesa ${mesa.id} ${estadoMesa}`}
@@ -293,11 +329,12 @@ export default function Reserva({ usuario }) {
                   })}
                 </div>
                 
-                <div className="barra bg-dark border border-secondary border-opacity-25 text-muted text-center p-1 position-absolute" style={{ top: '10%', right: '0', width: '50px', height: '120px', writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '0.8rem' }}><span>Barra</span></div>
-                <div className="cocina bg-dark border border-secondary border-opacity-25 text-muted text-center p-1 position-absolute" style={{ top: '50%', right: '0', width: '50px', height: '120px', writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '0.8rem' }}><span>Cocina</span></div>
+                {/* Barras decorativas laterales adaptadas */}
+                <div className="barra border border-light-subtle text-muted text-center p-1 position-absolute fw-bold d-flex align-items-center justify-content-center" style={{ background: '#ffffff', top: '10%', right: '0', width: '45px', height: '120px', writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '0.8rem', borderTopLeftRadius: '12px', borderBottomLeftRadius: '12px' }}><span>Zona Barra</span></div>
+                <div className="cocina border border-light-subtle text-muted text-center p-1 position-absolute fw-bold d-flex align-items-center justify-content-center" style={{ background: '#ffffff', top: '50%', right: '0', width: '45px', height: '120px', writingMode: 'vertical-rl', textOrientation: 'mixed', fontSize: '0.8rem', borderTopLeftRadius: '12px', borderBottomLeftRadius: '12px' }}><span>Cocina</span></div>
               </div>
               
-              <p className="mt-3 text-muted small mb-0">💡 Consejo: Selecciona primero el horario para habilitar el croquis. Haz clic sobre el número de mesa verde iluminado para apartar tu lugar en la sala.</p>
+              <p className="mt-3 text-muted small mb-0 fw-medium">💡 Consejo: Al elegir la fecha y la hora, las mesas desocupadas se pintarán en **azul/lila**. Dale un clic a tu mesa preferida para marcarla en color **morado** antes de enviar el formulario.</p>
             </div>
           </div>
           

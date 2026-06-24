@@ -20,12 +20,12 @@ export const PRODUCTOS_IMAGES = {
   rhino: new URL('../img/rhino.png', import.meta.url).href,
   virus: new URL('../img/virus.png', import.meta.url).href,
   fantasma: new URL('../img/fantasma.png', import.meta.url).href,
-  latte: new URL('../img/latte.jpg', import.meta.url).href,
-  cappuccino: new URL('../img/cappuccino.jpg', import.meta.url).href,
-  chocolate: new URL('../img/chocolate.jpg', import.meta.url).href,
-  brownie: new URL('../img/brownie.jpg', import.meta.url).href,
-  copahelado: new URL('../img/copahelado.jpg', import.meta.url).href,
-  celestino: new URL('../img/celestino.jpg', import.meta.url).href,
+  latte: new URL('../img/latte.png', import.meta.url).href,
+  cappuccino: new URL('../img/cappuccino.png', import.meta.url).href,
+  chocolate: new URL('../img/chocolate.png', import.meta.url).href,
+  brownie: new URL('../img/brownie.png', import.meta.url).href,
+  copahelado: new URL('../img/copahelado.png', import.meta.url).href,
+  celestino: new URL('../img/celestino.png', import.meta.url).href,
   default: new URL('../img/unnamed.png', import.meta.url).href,
 };
 
