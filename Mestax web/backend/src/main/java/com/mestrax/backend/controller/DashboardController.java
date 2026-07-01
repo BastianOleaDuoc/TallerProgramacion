@@ -1,0 +1,47 @@
+package com.mestrax.backend.controller;
+
+import com.mestrax.backend.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/dashboard")
+
+@CrossOrigin(
+    origins = {"https://nube-mu.vercel.app", "http://localhost:5173"}, 
+    allowCredentials = "true", 
+    allowedHeaders = "*", 
+    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS}
+)
+public class DashboardController {
+
+    @Autowired
+    private VentaRepository ventaRepository;
+    
+    @Autowired
+    private ReservaRepository reservaRepository;
+    
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @GetMapping("/resumen")
+    public Map<String, Object> obtenerResumen() {
+        Map<String, Object> resumen = new HashMap<>();
+        
+
+        resumen.put("totalVentas", ventaRepository.count());
+        resumen.put("totalReservas", reservaRepository.count());
+        resumen.put("totalUsuarios", usuarioRepository.count());
+        
+
+        double ingresosTotales = ventaRepository.findAll().stream()
+                .mapToDouble(v -> v.getTotal())
+                .sum();
+        resumen.put("ingresosTotales", ingresosTotales);
+        
+        return resumen;
+    }
+}
